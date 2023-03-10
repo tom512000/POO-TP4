@@ -90,3 +90,11 @@ echo $tom."\n";
 echo $tom->contains(18.25)."\n";
 
 # Question 16
+$notes3 = array(17, 10, 18, 10, 19, 18.25);
+$tim = new Student("Sikora", "Tim", $notes3);
+echo $tim."\n";
+echo $tim->getOccurenceCount(10)."\n";
+
+# Question 17
+echo $tim."\n";
+echo $tim->getFirstOccurrenceIndex(10)."\n";

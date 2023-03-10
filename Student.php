@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace TP4;
 
 use OutOfRangeException;
+use UnexpectedValueException;
 
 class Student
 {
@@ -99,6 +100,8 @@ class Student
      * Student.
      *
      * @param Student $student2 (optional) Instance de la classe Student
+     *
+     * @return bool (optional) True si les listes de notes sont identiques, false sinon
      */
     public function isEqual(Student $student2) : bool
     {
@@ -171,6 +174,8 @@ class Student
     /**
      * Méthode permettant de vérifier si une note se trouve dans une liste de note.
      *
+     * @param float $note (optional) Note de type nombre réel
+     *
      * @return bool (optional) True si la note est dans la liste, false sinon
      */
     public function contains(float $note) : bool
@@ -184,5 +189,33 @@ class Student
         return $res;
     }
 
-    public function getOccurenceCount(float $)
+    /**
+     * Méthode permettant de retourner le nombre d'occurence d'une note dans une liste de note.
+     *
+     * @param float $note (optional) Note de type nombre réel
+     *
+     * @return int (optional) Nombre d'occurences de la note
+     */
+    public function getOccurenceCount(float $note) : int
+    {
+        $res = 0;
+        foreach ($this->marks as $value) {
+            if ($value == $note) {
+                $res += 1;
+            }
+        }
+        return $res;
+    }
+
+    public function getFirstOccurrenceIndex(float $note) : int
+    {
+        if (!in_array($note, $this->marks)) {
+            throw new UnexpectedValueException ( "getFirstOccurrenceIndex - La note n'est pas dans la liste : $note");
+        }
+        $res = 0;
+        while (($res <= count($this->marks)) || (($this->marks)[$res]) == $note) {
+            $res += 1;
+        }
+        return $res;
+    }
 }
