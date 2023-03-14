@@ -207,15 +207,52 @@ class Student
         return $res;
     }
 
+    /**
+     * Méthode permettant de retourner la première occurence d'une note dans une liste de note.
+     *
+     * @param float $note (optional) Note de type nombre réel
+     *
+     * @return int (optional) Première occurence de la note
+     */
     public function getFirstOccurrenceIndex(float $note) : int
     {
         if (!in_array($note, $this->marks)) {
             throw new UnexpectedValueException ( "getFirstOccurrenceIndex - La note n'est pas dans la liste : $note");
         }
         $res = 0;
-        while (($res <= count($this->marks)) || (($this->marks)[$res]) == $note) {
+        while ($res < count($this->marks) && $note != $this->marks[$res]) {
             $res += 1;
         }
         return $res;
+    }
+
+    /**
+     * Méthode permettant de retourner la dernière occurence d'une note dans une liste de note.
+     *
+     * @param float $note (optional) Note de type nombre réel
+     *
+     * @return int (optional) Dernière occurence de la note
+     */
+    public function getLastOccurrenceIndex(float $note) : int
+    {
+        if (!in_array($note, $this->marks)) {
+            throw new UnexpectedValueException ( "getFirstOccurrenceIndex - La note n'est pas dans la liste : $note");
+        }
+        for ($i = 0; $i < count($this->marks); $i++) {
+            if ($this->marks[$i] == $note) {
+                $res = $i;
+            }
+        }
+        return $res;
+    }
+
+    public function swapMarks(int $ind1, int $ind2) : void
+    {
+        if ($ind1 < 0 || $ind1 >= count($this->marks) || $ind2 < 0 || $ind2 >= count($this->marks)) {
+            throw new OutOfRangeException ("getMark - indice invalide : $ind1 / $ind2");
+        }
+        $res = $this->marks[$ind1];
+        $this->marks[$ind1] = $this->marks[$ind2];
+        $this->marks[$ind2] = $res;
     }
 }

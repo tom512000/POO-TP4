@@ -98,3 +98,12 @@ echo $tim->getOccurenceCount(10)."\n";
 # Question 17
 echo $tim."\n";
 echo $tim->getFirstOccurrenceIndex(10)."\n";
+
+# Question 18
+echo $tim."\n";
+echo $tim->getLastOccurrenceIndex(10)."\n";
+
+# Question 19
+echo $tim."\n";
+$tim->swapMarks(1, 4);
+echo $tim."\n";
