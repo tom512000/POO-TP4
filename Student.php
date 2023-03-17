@@ -246,6 +246,12 @@ class Student
         return $res;
     }
 
+    /**
+     * Méthode permettant d'échanger 2 notes d'index $ind1 et $ind2 dans une liste de note.
+     *
+     * @param int $ind1 (optional) Index de la première note
+     * @param int $ind2 (optional) Index de la deuxième note
+     */
     public function swapMarks(int $ind1, int $ind2) : void
     {
         if ($ind1 < 0 || $ind1 >= count($this->marks) || $ind2 < 0 || $ind2 >= count($this->marks)) {
