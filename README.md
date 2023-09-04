@@ -11,9 +11,9 @@
 
 > Buts : L'objectif de ce sujet est d'implémenter une classe simple dont l'un des attribut est un tableau 1D, tout en préservant le principe d'encapsulation des données.
 >
-> [PDF - TP3](files/TP4_POO.pdf)
+> [PDF - TP4](files/TP4_POO.pdf)
 >
-> [PDF - TP3 Complémentaire](files/TPCartes_POO.pdf)
+> [PDF - TP4 Complémentaire](files/TPCartes_POO.pdf)
 
 <br>
 
